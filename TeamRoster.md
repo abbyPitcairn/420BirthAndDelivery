@@ -3,4 +3,4 @@
 * Abby Pitcairn
 * Nathaniel Serrano
 * Abdifatah Abdirahman
-* Ashlet Pike
+* Ashley Pike
