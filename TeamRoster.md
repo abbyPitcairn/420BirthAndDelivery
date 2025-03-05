@@ -4,3 +4,4 @@
 * Nathaniel Serrano
 * Abdifatah Abdirahman
 * Ashley Pike
+* Josh Thyng
