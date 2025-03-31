@@ -7,9 +7,9 @@
 3. Nurse attempts to enter a Delivery Register form, but the patient (mother or baby) does not exist in the system.
  System allows for new patient creation and links the delivery data accordingly. (Josh)
 
-4. Nurse searches for a specific mother. System displays past delivery records and outcomes linked to her profile.
+4. Nurse searches for a specific mother. System displays past delivery records and outcomes linked to her profile. (Nathaniel)
 
-5. Possible hereditary red flags from the mother's medical history (such as genetic defects) are included on the newborn's newly created medical history.
+5. Possible hereditary red flags from the mother's medical history (such as genetic defects) are included on the newborn's newly created medical history. (Nathaniel)
 
 ### Error Cases
 1. Delivery Register form is not filled out entirely, leading to insufficient information for a Monthly Midwife Report
