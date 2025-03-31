@@ -8,3 +8,5 @@
  System allows for new patient creation and links the delivery data accordingly.
 
 4. Nurse searches for a specific mother. System displays past delivery records and outcomes linked to her profile.
+
+5. Possible hereditary red flags from the mother's medical history (such as genetic defects) are included on the newborn's newly created medical history.
