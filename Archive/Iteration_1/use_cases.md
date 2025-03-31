@@ -10,3 +10,8 @@
 4. Nurse searches for a specific mother. System displays past delivery records and outcomes linked to her profile.
 
 5. Possible hereditary red flags from the mother's medical history (such as genetic defects) are included on the newborn's newly created medical history.
+
+# Error Cases
+1. Delivery Register form is not filled out entirely, leading to insufficient information for a Monthly Midwife Report
+
+2. Health official makes mistake filling out form, either making a typo in a section like name/address or inputting information regarding vitals in incorrect spaces, e.g. Weight of Mother in Body Temperature of Mother section
