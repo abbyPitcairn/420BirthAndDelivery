@@ -138,18 +138,23 @@ public class EarlyDraft {
 
   public static void main(String[] args) {
     // Create or get patients
+    System.out.println("------------USE CASE 3------------");
     Patient mother = UseCase3.getOrCreatePatient("Test Mom 1");
     Patient baby = UseCase3.getOrCreatePatient("Test Baby 1");
     // Save delivery
+    System.out.println("------------USE CASE 1------------");
     UseCase1.saveDelivery(mother, baby, "Successful Birth");
     // Print report
+    System.out.println("------------USE CASE 2------------");
     UseCase2.printReport();
 
     // Search for patient
+    System.out.println("------------USE CASE 4------------");
     UseCase4.searchPatient(mother.getName());
     UseCase4.searchPatient("test");
 
     // Add medical condition
+    System.out.println("------------USE CASE 5------------");
     System.out.println("Baby's medical history before additions: " + baby.getMedicalHistory());
     mother.addMedicalCondition("Heart Disease", true);
     mother.addMedicalCondition("Back Pain", false);
