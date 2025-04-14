@@ -7,13 +7,22 @@ import java.util.*;
  */
 class Patient {
 
+  String patientID;
+  Collection<Visit> visits;
+  String nhisNumber;
   String name;
-  Map<String, Boolean> medicalHistory;
+  Date dateOfBirth;
+  String sex;
+  int age;
+  String address;
+  Clinic clinic;
+
+
 
 
   Patient(String name) {
     this.name = name;
-    this.medicalHistory = new HashMap<>();
+    this.visits = new ArrayList<>();
 
   }
 
@@ -21,12 +30,64 @@ class Patient {
     return name;
   }
 
-  void addMedicalCondition(String condition, boolean isHereditary) {
-    medicalHistory.put(condition, isHereditary);
-  }
+  // void addMedicalCondition(String condition, boolean isHereditary) {
+  //   medicalHistory.put(condition, isHereditary);
+  // }
 
-  Map<String, Boolean> getMedicalHistory() {
-    return medicalHistory;
+  // Map<String, Boolean> getMedicalHistory() {
+  //   return medicalHistory;
+  // }
+
+  class Visit {
+    String date;
+    String bloodPressure;
+    int pulse;
+    double bodyTemp;
+    double weight;
+    String respiration;
+    String caseStatus;
+    String[] conditionHistory;
+    String principalCondition;
+    String additionalDiagnosis;
+    String treatment;
+    boolean referralStatus;
+    double treatmentCost;
+    String remarks;
+
+    public Visit(String date, String bloodPressure, int pulse, double bodyTemp,
+        double weight, String respiration, String caseStatus,
+        String[] conditionHistory, String principalCondition,
+        String additionalDiagnosis, String treatment, boolean referralStatus,
+        double treatmentCost, String remarks) {
+      this.date = date;
+      this.bloodPressure = bloodPressure;
+      this.pulse = pulse;
+      this.bodyTemp = bodyTemp;
+      this.weight = weight;
+      this.respiration = respiration;
+      this.caseStatus = caseStatus;
+      this.conditionHistory = conditionHistory;
+      this.principalCondition = principalCondition;
+      this.additionalDiagnosis = additionalDiagnosis;
+      this.treatment = treatment;
+      this.referralStatus = referralStatus;
+      this.treatmentCost = treatmentCost;
+      this.remarks = remarks;
+    }
+  }
+  class Clinic {
+    int clinicID;
+    String facilityZone;
+    String district;
+    String subDistrict;
+
+    public Clinic(int clinicID, String facilityZone, String district,
+        String subDistrict) {
+      this.clinicID = clinicID;
+      this.facilityZone = facilityZone;
+      this.district = district;
+      this.subDistrict = subDistrict;
+    }
   }
 }
 
@@ -121,15 +182,15 @@ class UseCase3 {
   * Use Case 5: Possible hereditary red flags from the mother's medical history (such as genetic defects) 
   * are included on the newborn's newly created medical history
   */
-  class UseCase5 {
-    static void checkHereditaryConditions(Patient mother, Patient baby) {
-      for (Map.Entry<String, Boolean> entry : mother.getMedicalHistory().entrySet()) {
-        if (entry.getValue()) {
-          baby.addMedicalCondition("[POSSIBLY INHERITED]: "+entry.getKey(), true);
-        }
-      }
-    }
-  }
+  // class UseCase5 {
+  //   static void checkHereditaryConditions(Patient mother, Patient baby) {
+  //     for (Map.Entry<String, Boolean> entry : mother.getMedicalHistory().entrySet()) {
+  //       if (entry.getValue()) {
+  //         baby.addMedicalCondition("[POSSIBLY INHERITED]: "+entry.getKey(), true);
+  //       }
+  //     }
+  //   }
+  // }
 
 /**
  * Main method to show the use cases working
@@ -154,11 +215,11 @@ public class EarlyDraft {
     UseCase4.searchPatient("test");
 
     // Add medical condition
-    System.out.println("------------USE CASE 5------------");
-    System.out.println("Baby's medical history before additions: " + baby.getMedicalHistory());
-    mother.addMedicalCondition("Heart Disease", true);
-    mother.addMedicalCondition("Back Pain", false);
-    UseCase5.checkHereditaryConditions(mother, baby);
-    System.out.println("Baby's medical history after additions: " + baby.getMedicalHistory());
+    // System.out.println("------------USE CASE 5------------");
+    // System.out.println("Baby's medical history before additions: " + baby.getMedicalHistory());
+    // mother.addMedicalCondition("Heart Disease", true);
+    // mother.addMedicalCondition("Back Pain", false);
+    // UseCase5.checkHereditaryConditions(mother, baby);
+    // System.out.println("Baby's medical history after additions: " + baby.getMedicalHistory());
   }
 }
