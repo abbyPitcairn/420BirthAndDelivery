@@ -17,3 +17,23 @@
 1. Delivery Register form is not filled out entirely, leading to insufficient information for a Monthly Midwife Report
 
 2. Health official makes mistake filling out form, either making a typo in a section like name/address or inputting information regarding vitals in incorrect spaces, e.g. Weight of Mother in Body Temperature of Mother section
+
+
+## Demo #1 Use Case (Mother Delivers Baby)
+**Scenario:**  
+A mother gives birth. The nurse logs into the system and opens the Delivery Register form
+
+**Steps AFTER Delievery:**
+1. Nurse selects or creates a patient record for the mother and baby
+2. Nurse enters delivery details including:
+   - Date and time of birth
+   - Delivery type
+   - Outcome
+   - Gender
+   - Name
+3. Nurse submits the form
+
+**System Result:**  
+- The delivery information is saved to the database
+- It is linked to both the mother and baby’s patient profiles
+- The data becomes available
