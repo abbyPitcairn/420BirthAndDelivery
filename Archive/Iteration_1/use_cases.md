@@ -8,8 +8,10 @@
  System allows for new patient creation and links the delivery data accordingly. (Josh)
 
 4. Nurse searches for a specific mother. System displays past delivery records and outcomes linked to her profile. (Nathaniel)
+    * According to current Patient object design, Each patient should have a collection of Visit objects, each having records of basic measurements like weight & body temperature as well as a principleCondition, additionalDiagnosis, and any special remarks.
+    * As such, this search system should take a PatientID and return that patient's Visits.
 
-5. Possible hereditary red flags from the mother's medical history (such as genetic defects) are included on the newborn's newly created medical history. (Nathaniel)
+6. Possible hereditary red flags from the mother's medical history (such as genetic defects) are included on the newborn's newly created medical history. (Nathaniel)
 
 ### Error Cases
 1. Delivery Register form is not filled out entirely, leading to insufficient information for a Monthly Midwife Report
