@@ -238,12 +238,34 @@ public class EarlyDraft {
 
   public static void main(String[] args) {
 
+
+    demoUseCase3();
+    demoUseCase1();
     demoUseCase4();
+    demoUseCase2();
 
   }
 
+  private static void demoUseCase1() {
+    Patient mother = UseCase3.getOrCreatePatient("Test Mom 1", "123");
+    Patient baby = UseCase3.getOrCreatePatient("Test Baby 1", "456");
+    System.out.println("------------USE CASE 1------------");
+    UseCase1.saveDelivery(mother, baby, "Successful Birth");
+  }
 
-  public static void demoUseCase4() {
+  private static void demoUseCase2() {
+    System.out.println("------------USE CASE 2------------");
+    UseCase2.printReport();
+  }
+
+  private static void demoUseCase3() {
+    System.out.println("------------USE CASE 3------------");
+    Patient mother = UseCase3.getOrCreatePatient("Test Mom 1", "123");
+    Patient baby = UseCase3.getOrCreatePatient("Test Baby 1", "456");
+  }
+
+
+  private static void demoUseCase4() {
     System.out.println("--------------------------------------------------------");
     Patient mother = UseCase3.getOrCreatePatient("Test Mom 1", "123");
     Patient baby = UseCase3.getOrCreatePatient("Test Baby 1", "456");
