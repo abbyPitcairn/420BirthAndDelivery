@@ -58,4 +58,5 @@ A Nurse searches for a patient's mother to see her medical history in case it af
    - etc.
 
 **System Result:**
-- No changes to the system should be made. This is just a search.
+- If the nurse chooses to add specific conditions to the newborn's Patient profile, those conditions would be added to the newborn's Records.
+- Otherwise, no changes to the system should be made, since it would just be a search.
