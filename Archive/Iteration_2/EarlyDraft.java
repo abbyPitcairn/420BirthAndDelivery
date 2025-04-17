@@ -7,29 +7,37 @@ import java.util.*;
  */
 class Patient {
 
-  String patientID;
-  Collection<Visit> visits;
-  String nhisNumber;
   String name;
-  Date dateOfBirth;
-  String sex;
-  int age;
-  String address;
-  Clinic clinic;
+  String patientID;
+  String patientMotherID;
+  ArrayList<String> records;
 
 
 
 
   Patient(String name) {
     this.name = name;
-    this.visits = new ArrayList<>();
+    this.patientID = UUID.randomUUID().toString();
+    this.patientMotherID = null; // This can be set later
+    this.records = null; // Placeholder for records
 
+  }
+
+
+  Patient(String name, String ID) {
+    this.name = name;
+    this.patientID = ID;
+    this.patientMotherID = null; // This can be set later
+    records = new ArrayList<>();
   }
 
   String getName() {
     return name;
   }
 
+  /**
+   * Previously used for Use Case 5, but no longer fits the Patient Architecture; commented out for now.
+   */
   // void addMedicalCondition(String condition, boolean isHereditary) {
   //   medicalHistory.put(condition, isHereditary);
   // }
@@ -38,7 +46,7 @@ class Patient {
   //   return medicalHistory;
   // }
 
-  class Visit {
+  class Record {
     String date;
     String bloodPressure;
     int pulse;
@@ -54,7 +62,7 @@ class Patient {
     double treatmentCost;
     String remarks;
 
-    public Visit(String date, String bloodPressure, int pulse, double bodyTemp,
+    public Record(String date, String bloodPressure, int pulse, double bodyTemp,
         double weight, String respiration, String caseStatus,
         String[] conditionHistory, String principalCondition,
         String additionalDiagnosis, String treatment, boolean referralStatus,
@@ -150,35 +158,66 @@ class UseCase3 {
 
   static Map<String, Patient> patientMap = new HashMap<>();
 
-  static Patient getOrCreatePatient(String name) {
-    if (!patientMap.containsKey(name)) {
-      patientMap.put(name, new Patient(name));
+  static Patient getOrCreatePatient(String name, String ID) {
+    if (!patientMap.containsKey(ID)) {
+      patientMap.put(ID, new Patient(name, ID));
       System.out.println("New patient added: " + name);
     }
-    return patientMap.get(name);
+    return patientMap.get(ID);
   }
 }
 
 /*
  * Use Case 4: Nurse searches for a specific mother. 
- * System displays past delivery records and outcomes linked to her profile.
+ * System displays past medical conditions linked to her profile to add to baby's profile.
  */
  class UseCase4 {
-  static void searchPatient(String name) {
-    if (UseCase3.patientMap.containsKey(name)) {
-      System.out.println("Patient found: " + name);
-      for (Delivery d : UseCase1.deliveries) {
-        if (d.mother.name.equals(name)) {
-          System.out.println("Mother: " + d.mother.name + ", Baby: " + d.baby.name + ", Outcome: " + d.outcome);
-        }
+  static void searchMother(String ID) {
+    System.out.println("Searching for mother of patient with ID: [" + ID + "]...");
+    if (!UseCase3.patientMap.containsKey(ID)) {
+      System.out.println("Patient with ID: [" + ID + "] not found.");
+      return;
+    }
+    Patient cur = UseCase3.patientMap.get(ID);
+    if (cur.patientMotherID != null) {
+      Patient mother = UseCase3.patientMap.get(cur.patientMotherID);
+      System.out.println("Patient's mother found: " + mother.getName()+" with ID: " + mother.patientID);
+      System.out.println("Mother's Medical History:");
+      for (int i=0; i<mother.records.size(); i++) {
+        System.out.println((i+1)+". "+mother.records.get(i));
       }
+      System.out.println("Do you wish to add any of these medical conditions to the newborn's medical history? \nIf so, please enter the corresponding number, separate them by commas if needed (e.g. 1,3,4) or type 'no' to skip:");
+      Scanner scanner = new Scanner(System.in);
+      String response = scanner.nextLine();
+      if (!response.equalsIgnoreCase("no")) {
+        String[] indices = response.split(",");
+        for (String index : indices) {
+          try {
+            int idx = Integer.parseInt(index.trim()) - 1;
+            if (idx >= 0 && idx < mother.records.size()) {
+              String condition = mother.records.get(idx);
+              cur.records.add(condition+
+                " [POSSIBLY INHERITED]"); // Mark as possibly inherited
+              System.out.println("Added condition: " + condition + " to newborn's medical history.");
+            } else {
+              System.out.println("Invalid index: " + index);
+            }
+          } catch (NumberFormatException e) {
+            System.out.println("Invalid input: " + index);
+          }
+        }
+      } else {
+        System.out.println("No conditions added.");
+      }
+      scanner.close();
     } else {
-      System.out.println("Patient not found: " + name);
+      System.out.println("FAILED to find Mother of Patient with ID: " + ID);
     }
   }
  }
 
  /*
+  * CURRENTLY COMMENTED OUT SINCE THIS USE CASE NO LONGER FITS THE NEW PATIENT ARCHITECTURE.
   * Use Case 5: Possible hereditary red flags from the mother's medical history (such as genetic defects) 
   * are included on the newborn's newly created medical history
   */
@@ -198,28 +237,30 @@ class UseCase3 {
 public class EarlyDraft {
 
   public static void main(String[] args) {
-    // Create or get patients
-    System.out.println("------------USE CASE 3------------");
-    Patient mother = UseCase3.getOrCreatePatient("Test Mom 1");
-    Patient baby = UseCase3.getOrCreatePatient("Test Baby 1");
-    // Save delivery
-    System.out.println("------------USE CASE 1------------");
-    UseCase1.saveDelivery(mother, baby, "Successful Birth");
-    // Print report
-    System.out.println("------------USE CASE 2------------");
-    UseCase2.printReport();
 
-    // Search for patient
-    System.out.println("------------USE CASE 4------------");
-    UseCase4.searchPatient(mother.getName());
-    UseCase4.searchPatient("test");
+    demoUseCase4();
 
-    // Add medical condition
-    // System.out.println("------------USE CASE 5------------");
-    // System.out.println("Baby's medical history before additions: " + baby.getMedicalHistory());
-    // mother.addMedicalCondition("Heart Disease", true);
-    // mother.addMedicalCondition("Back Pain", false);
-    // UseCase5.checkHereditaryConditions(mother, baby);
-    // System.out.println("Baby's medical history after additions: " + baby.getMedicalHistory());
+  }
+
+
+  public static void demoUseCase4() {
+    System.out.println("--------------------------------------------------------");
+    Patient mother = UseCase3.getOrCreatePatient("Test Mom 1", "123");
+    Patient baby = UseCase3.getOrCreatePatient("Test Baby 1", "456");
+    /*
+     * Typically, the mother's ID would be set when the baby is created, and she would already have
+     * medical records without the need to add them here, but this is just for demo purposes.
+     */
+    baby.patientMotherID = mother.patientID; // Set the mother's ID for the baby
+
+    mother.records.add("Heart Disease");   // Example records
+    mother.records.add("Back Pain");
+    mother.records.add("Diabetes");
+    mother.records.add("Asthma");
+
+    System.out.println("-----------DEMO: SEARCH FOR PATIENT'S MOTHER------------");
+    UseCase4.searchMother("test");  // Test case for non-existing patient
+    UseCase4.searchMother(baby.patientID);
+    System.out.println("Baby Patient's records: "+baby.records.toString());
   }
 }
