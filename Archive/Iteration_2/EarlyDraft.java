@@ -137,17 +137,15 @@ class UseCase1 {
 class UseCase2 {
 
   static void printReport() {
-    System.out.println("Monthly Midwife Report:"); //This can be changed later on if needed
+    System.out.println("*** Monthly Midwife Report ***"); //This can be changed later on if needed
+    int entry = 1;
     for (Delivery d : UseCase1.deliveries) {
-      System.out.println(
-        "Mother: " +
-        d.mother.name +
-        ", Baby: " +
-        d.baby.name +
-        ", Outcome: " +
-        d.outcome
-      );
+      System.out.println("Entry #" + entry++);
+      System.out.println("Mother: " + d.mother.name); 
+      System.out.println("Baby: " + d.baby.name);
+      System.out.println("Outcome: " +d.outcome); 
     }
+    System.out.println("*** End of Report ***");
   }
 }
 
