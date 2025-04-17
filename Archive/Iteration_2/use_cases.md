@@ -40,11 +40,11 @@ A mother gives birth. The nurse logs into the system and opens the Delivery Regi
 
 ## Demo #2 Use Case (Patient Search)
 **Scenario:**
-A Nurse searches for a patient's mother to see her medical history in case it affects the patient. The system displays past delivery records and outcomes linked to the mother's profile.
+A Nurse searches for a patient's mother to see her medical history in case it affects the patient. The system displays past delivery records and outcomes linked to the mother's profile when given the child's ID as input.
 
 **Steps involved in a search:**
-1. User enters patient's mother's ID (in a GUI environment, clicks on the user's mother information)
-2. The system searches through the list of Patient objects until it finds the one with a matching ID
+1. User enters patient's ID (in a GUI environment, clicks on the user's mother information)
+2. The system reads the Patient's mother's ID value and searches through the list of Patient objects until it finds the one with a matching ID
 3. The system then displays the basic information of the Patient object for the mother. This includes:
    - Name
    - Date of birth
@@ -52,6 +52,10 @@ A Nurse searches for a patient's mother to see her medical history in case it af
    - Patient Mother ID
    - Records
 4. The system displays the information found in the mother's Records to the user.
+   - "Back Pain"
+   - "Heart Disease"
+   - "Asthma"
+   - etc.
 
 **System Result:**
 - No changes to the system should be made. This is just a search.
