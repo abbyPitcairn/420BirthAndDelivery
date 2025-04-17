@@ -40,7 +40,7 @@ A mother gives birth. The nurse logs into the system and opens the Delivery Regi
 
 ## Demo #2 Use Case (Patient Search)
 **Scenario:**
-A Nurse searches for a patient's mother to see her medical history in case it affects the patient. The system displays past delivery records and outcomes linked to the mother's profile when given the child's ID as input.
+A Nurse searches for a patient's mother to see her medical history in case it affects the patient. The system displays past delivery records and outcomes linked to the mother's profile when given the child's ID as input. If the Nurse sees a health condition that could be passed on to the patient, the Nurse can go on to add a remark in the patient's record/Delivery Register Form.
 
 **Steps involved in a search:**
 1. User enters patient's ID (in a GUI environment, clicks on the user's mother information)
