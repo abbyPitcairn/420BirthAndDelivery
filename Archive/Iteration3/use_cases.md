@@ -69,12 +69,12 @@ At the end of the month, a nurse logs into the system and generates the monthly 
 **Steps involved:**
 1. User selects to generate midwife report
 2. The system generates entries for each of the deliveries. Each entry includes:
-   - Entry Number
+   - Entry ID
    - Mother's name
    - Baby's name
    - Outcome of birth
 3. The system displays and saves generated report
 
 **System Result:**
-- The generated report is saved to the network
-- Available to view within network
+- The generated report is saved securely to internal systems
+- Available to view within internal network
