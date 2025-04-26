@@ -60,3 +60,21 @@ A Nurse searches for a patient's mother to see her medical history in case it af
 **System Result:**
 - If the nurse chooses to add specific conditions to the newborn's Patient profile, those conditions would be added to the newborn's Records.
 - Otherwise, no changes to the system should be made, since it would just be a search.
+
+
+## Demo #3 Use Case (Midwife Report)
+**Scenario:**
+At the end of the month, a nurse logs into the system and generates the monthly midwife report
+
+**Steps involved:**
+1. User selects to generate midwife report
+2. The system generates entries for each of the deliveries. Each entry includes:
+   - Entry Number
+   - Mother's name
+   - Baby's name
+   - Outcome of birth
+3. The system displays and saves generated report
+
+**System Result:**
+- The generated report is saved to the network
+- Available to view within network
