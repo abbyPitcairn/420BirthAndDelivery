@@ -1,4 +1,4 @@
-package Archive.Iteration_2;
+package Archive.Iteration3;
 
 import java.util.*;
 
@@ -159,7 +159,7 @@ class UseCase3 {
   static Patient getOrCreatePatient(String name, String ID) {
     if (!patientMap.containsKey(ID)) {
       patientMap.put(ID, new Patient(name, ID));
-      System.out.println("New patient added: " + name);
+      System.out.println("New patient added: " + name +" with ID: " + ID);
     }
     return patientMap.get(ID);
   }
@@ -241,6 +241,7 @@ public class EarlyDraft {
     demoUseCase1();
     demoUseCase4();
     demoUseCase2();
+    Archive.Iteration3.DeliveryRecordTest.testDeliveryRecord(); // Test the DeliveryRecord class
 
   }
 
