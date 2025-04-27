@@ -2,10 +2,10 @@
 
 1. Mother delivers baby; Nurse is able to enter DeliveryRegister form information; DeliveryRegister form is saved to Database. Information is attributed to Patient Mother and Patient Baby. (Josh)
 
-2. Information from DeliveryRegister form Database is sent to MonthlyMidwifeReport. (Josh)
+2. Information from DeliveryRegister is sent to MonthlyMidwifeReport. (Josh)
 
-3. Nurse attempts to enter a Delivery Register form, but the patient (mother or baby) does not exist in the system.
- System allows for new patient creation and links the delivery data accordingly. (Josh)
+3. Nurse attempts to enter a Delivery Register form, but the patient (mother) does not exist in the system.
+ System allows for new patient creation and links the DeliveryRecord accordingly. (Josh)
 
 4. Nurse searches for a specific mother. System displays past delivery records and outcomes linked to her profile. (Nathaniel)
     * According to current Patient object design, Each patient should have a collection of Visit objects, each having records of basic measurements like weight & body temperature as well as a principleCondition, additionalDiagnosis, and any special remarks.
