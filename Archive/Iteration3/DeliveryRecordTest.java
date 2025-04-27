@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class DeliveryRecordTest {
 
-    public void testDeliveryRecord() {
+    public static void testDeliveryRecord() {
         // Create BabyRecord objects
         BabyRecord baby1 = new BabyRecord(1, 8, 50.5, 35.0, 3.5, 7, 9);
         BabyRecord baby2 = new BabyRecord(2, 9, 52.0, 36.0, 3.8, 8, 10);
