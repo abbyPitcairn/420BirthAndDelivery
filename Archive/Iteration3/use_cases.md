@@ -78,3 +78,20 @@ At the end of the month, a nurse logs into the system and generates the monthly 
 **System Result:**
 - The generated report is saved securely to internal systems
 - Available to view within internal network
+
+
+## Demo #4 Use Case (Patient Creation + Linkage)
+**Scenario:**
+A nurse attempts to enter a Delivery Register Form; however, the patient(mother) is a first-time patient and does not exist in the system. The system creates a new patient record with the mother's ID and allows for the Delivery Register Form to be linked to the mother’s patient profile.
+
+**Steps Involved:**
+
+1. User enters patient ID into Patient collection
+2. System searches the collection of Patient objects for the patient ID
+3. If there is no matching ID found, then the system allows for the creation of a new Patient Object.
+4. The existing/new patient object is returned
+
+**System Result:**
+- The new Patient Object now exists and is searchable within the Patient collection
+- The user can link a Delivery Register Form to the returned Patient object
+- The new Delivery Register Form is saved and available with the rest of the patient’s records.
