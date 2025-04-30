@@ -26,7 +26,8 @@ The repository is organized into an `Archive` directory, which contains the cont
 ### 🧑‍💻 Use of AI Tools
 - AI tools were used to ask clarifying questions on how code should be written or cleaned up. 
 - AI tools were used to auto-generate the long DeliveryRecord private variable declarations and its constructor.
-- AI tools were used to suggest the solution to the issue of multiple babies in a single DeliveryRecord and created BabyRecord's outline. 
+- AI tools were used to suggest the solution to the issue of multiple babies in a single DeliveryRecord and created BabyRecord's outline.
+- AI tools were also utilized to create most of `UseCaseDemoGUI.java`, as well as `DeliveryRecordGUI.java` due to our lack of experience in working with Swing.
 
 ---
 
