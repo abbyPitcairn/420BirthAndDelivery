@@ -12,6 +12,7 @@
 The repository is organized into an `Archive` directory, which contains the contents of **Iterations 1, 2, and 3**.  
 - **Iteration 3** is the most complete and builds on the foundation laid in the earlier versions.  
 - For the clearest picture of our final implementation, we recommend starting with **Iteration 3**.
+- The Project Presentation materials are available in `Birth and Delivery.pdf`.
 
 #### 🗂️ Iteration 3 Structure  
 - **Domain Model** – Defines the scope and core concepts of the project.  
