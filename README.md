@@ -23,6 +23,11 @@ The repository is organized into an `Archive` directory, which contains the cont
   - `DeliveryRecordGUI` and `UseCaseDemoGUI` – Java Swing interfaces designed for use by healthcare workers to interact with the system.  
 - **UseCases.md** – A collaboratively developed document detailing key system use cases, created by the full team throughout the project.
 
+### 🧑‍💻 Use of AI Tools
+- AI tools were used to ask clarifying questions on how code should be written or cleaned up. 
+- AI tools were used to auto-generate the long DeliveryRecord private variable declarations and its constructor.
+- AI tools were used to suggest the solution to the issue of multiple babies in a single DeliveryRecord and created BabyRecord's outline. 
+
 ---
 
 
